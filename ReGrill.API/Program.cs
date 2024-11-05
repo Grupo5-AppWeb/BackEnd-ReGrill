@@ -1,3 +1,9 @@
+using ReGrill.API.Inventory.Application.Internal.CommandServices;
+using ReGrill.API.Inventory.Application.Internal.QueryServices;
+using ReGrill.API.Inventory.Domain.Repositories;
+using ReGrill.API.Inventory.Domain.Services;
+using ReGrill.API.Inventory.Infrastructure.Persistence.EFC.Repositories;
+
 using ReGrill.API.Shared.Domain.Repositories;
 using ReGrill.API.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using ReGrill.API.Shared.Infrastructure.Persistence.EFC.Configuration;
@@ -50,10 +56,9 @@ else if (builder.Environment.IsProduction())
 // Shared Bounded Context Injection Configuration
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-//Colocar lo siguiente, usen como plantilla
-//builder.Services.AddScoped<IAdminStockRepository, AdminStockRepository>();
-//builder.Services.AddScoped<IAdminStockCommandService, AdminStockCommandService>();
-//builder.Services.AddScoped<IAdminStockQueryService, AdminStockQueryService>();
+builder.Services.AddScoped<IAdminStockRepository, AdminStockRepository>();
+builder.Services.AddScoped<IAdminStockCommandService, AdminStockCommandService>();
+builder.Services.AddScoped<IAdminStockQueryService, AdminStockQueryService>();
 
 var app = builder.Build();
 
