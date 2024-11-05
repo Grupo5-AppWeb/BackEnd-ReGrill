@@ -1,7 +1,7 @@
-using Regrill.API.Orders.Domain.Model.Aggregates;
-using Regrill.API.Orders.Domain.Model.Commands;
-using Regrill.API.Orders.Domain.Repositories;
-using Regrill.API.Orders.Domain.Services;
+using ReGrill.API.Orders.Domain.Model.Aggregates;
+using ReGrill.API.Orders.Domain.Model.Commands;
+using ReGrill.API.Orders.Domain.Repositories;
+using ReGrill.API.Orders.Domain.Services;
 using Regrill.API.Shared.Domain.Repositories;
 
 namespace Regrill.API.Orders.Application.Internal.CommandServices;

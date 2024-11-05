@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using Regrill.API.Orders.Domain.Model.Aggregates;
+using ReGrill.API.Orders.Domain.Model.Aggregates;
 
-namespace Regrill.API.Orders.Domain.Model.Entities;
+namespace ReGrill.API.Orders.Domain.Model.Entities;
 
 public class OrderItem
 {

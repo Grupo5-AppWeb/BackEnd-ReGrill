@@ -1,7 +1,7 @@
-using Regrill.API.Orders.Domain.Model.Aggregates;
-using Regrill.API.Orders.Domain.Model.Queries;
+using ReGrill.API.Orders.Domain.Model.Aggregates;
+using ReGrill.API.Orders.Domain.Model.Queries;
 
-namespace Regrill.API.Orders.Domain.Services;
+namespace ReGrill.API.Orders.Domain.Services;
 
 public interface IOrderQueryService
 {

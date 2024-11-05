@@ -1,4 +1,4 @@
-using Regrill.API.Orders.Domain.Model.Entities;
+using ReGrill.API.Orders.Domain.Model.Entities;
 
 namespace Regrill.API.Orders.Domain.Model.Commands;
 
