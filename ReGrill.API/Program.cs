@@ -3,6 +3,11 @@ using ReGrill.API.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using ReGrill.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using ReGrill.API.Shared.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
+using ReGrill.API.Profile.Application.Internal.CommandServices;
+using ReGrill.API.Profile.Application.Internal.QueryServices;
+using ReGrill.API.Profile.Domain.Repositories;
+using ReGrill.API.Profile.Domain.Services;
+using ReGrill.API.Profile.Infrastucture.Persistence.EFC.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,9 +56,9 @@ else if (builder.Environment.IsProduction())
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 //Colocar lo siguiente, usen como plantilla
-//builder.Services.AddScoped<IAdminStockRepository, AdminStockRepository>();
-//builder.Services.AddScoped<IAdminStockCommandService, AdminStockCommandService>();
-//builder.Services.AddScoped<IAdminStockQueryService, AdminStockQueryService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserCommandService, UserCommandService>();
+builder.Services.AddScoped<IUserQueryService, UserQueryService>();
 
 var app = builder.Build();
 
