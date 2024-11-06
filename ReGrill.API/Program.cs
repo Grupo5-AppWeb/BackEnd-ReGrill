@@ -47,6 +47,10 @@ else if (builder.Environment.IsProduction())
 
 // Configure Dependency Injection
 
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options => options.EnableAnnotations());
+
 // Shared Bounded Context Injection Configuration
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -54,6 +58,11 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 //builder.Services.AddScoped<IAdminStockRepository, AdminStockRepository>();
 //builder.Services.AddScoped<IAdminStockCommandService, AdminStockCommandService>();
 //builder.Services.AddScoped<IAdminStockQueryService, AdminStockQueryService>();
+
+// Orders Bounded Context Injection Configuration
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOrderCommandService, OrderCommandService>();
+builder.Services.AddScoped<IOrderQueryService, OrderQueryService>();
 
 var app = builder.Build();
 
