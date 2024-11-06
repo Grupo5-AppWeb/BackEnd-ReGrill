@@ -1,7 +1,7 @@
 using ReGrill.API.Orders.Domain.Model.Commands;
 using ReGrill.API.Orders.Domain.Model.Entities;
 
-namespace Regrill.API.Orders.Domain.Model.Aggregates;
+namespace ReGrill.API.Orders.Domain.Model.Aggregates;
 
 public class Order
 {

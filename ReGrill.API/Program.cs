@@ -3,6 +3,11 @@ using ReGrill.API.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using ReGrill.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using ReGrill.API.Shared.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
+using ReGrill.API.Orders.Application.Internal.CommandServices;
+using ReGrill.API.Orders.Application.Internal.QueryServices;
+using ReGrill.API.Orders.Domain.Repositories;
+using ReGrill.API.Orders.Domain.Services;
+using ReGrill.API.Orders.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

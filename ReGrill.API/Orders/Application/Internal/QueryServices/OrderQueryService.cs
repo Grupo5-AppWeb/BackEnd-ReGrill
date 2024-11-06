@@ -3,7 +3,7 @@ using ReGrill.API.Orders.Domain.Model.Queries;
 using ReGrill.API.Orders.Domain.Repositories;
 using ReGrill.API.Orders.Domain.Services;
 
-namespace Regrill.API.Orders.Application.Internal.QueryServices;
+namespace ReGrill.API.Orders.Application.Internal.QueryServices;
 
 public class OrderQueryService(IOrderRepository orderRepository): IOrderQueryService
 {

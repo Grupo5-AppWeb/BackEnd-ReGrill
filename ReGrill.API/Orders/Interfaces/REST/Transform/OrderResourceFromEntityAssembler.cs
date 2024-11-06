@@ -1,7 +1,7 @@
 using ReGrill.API.Orders.Domain.Model.Aggregates;
 using ReGrill.API.Orders.Interfaces.REST.Resources;
 
-namespace Regrill.API.Orders.Interfaces.REST.Transform;
+namespace ReGrill.API.Orders.Interfaces.REST.Transform;
 
 public static class OrderResourceFromEntityAssembler
 {

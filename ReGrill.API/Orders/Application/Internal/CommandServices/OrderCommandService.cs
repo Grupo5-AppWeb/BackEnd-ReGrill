@@ -2,9 +2,9 @@ using ReGrill.API.Orders.Domain.Model.Aggregates;
 using ReGrill.API.Orders.Domain.Model.Commands;
 using ReGrill.API.Orders.Domain.Repositories;
 using ReGrill.API.Orders.Domain.Services;
-using Regrill.API.Shared.Domain.Repositories;
+using ReGrill.API.Shared.Domain.Repositories;
 
-namespace Regrill.API.Orders.Application.Internal.CommandServices;
+namespace ReGrill.API.Orders.Application.Internal.CommandServices;
 
 public class OrderCommandService(IOrderRepository orderRepository, IUnitOfWork unitOfWork) : IOrderCommandService
 {

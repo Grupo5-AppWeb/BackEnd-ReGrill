@@ -1,7 +1,7 @@
-using ReGrill.API.Orders.Domain.Model.Aggregates;
 using ReGrill.API.Shared.Domain.Repositories;
+using ReGrill.API.Orders.Domain.Model.Aggregates;
 
-namespace Regrill.API.Orders.Domain.Repositories;
+namespace ReGrill.API.Orders.Domain.Repositories;
 
 public interface IOrderRepository : IBaseRepository<Order>
 {

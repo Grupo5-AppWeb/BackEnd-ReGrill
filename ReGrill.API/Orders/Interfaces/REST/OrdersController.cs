@@ -6,7 +6,7 @@ using ReGrill.API.Orders.Interfaces.REST.Resources;
 using ReGrill.API.Orders.Interfaces.REST.Transform;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace Regrill.API.Orders.Interfaces.REST;
+namespace ReGrill.API.Orders.Interfaces.REST;
 [ApiController]
 [Route("api/v1/[controller]")]
 [Produces(MediaTypeNames.Application.Json)]
