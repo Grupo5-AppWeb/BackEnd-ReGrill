@@ -9,6 +9,16 @@ using ReGrill.API.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using ReGrill.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using ReGrill.API.Shared.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
+using ReGrill.API.Profile.Application.Internal.CommandServices;
+using ReGrill.API.Profile.Application.Internal.QueryServices;
+using ReGrill.API.Profile.Domain.Repositories;
+using ReGrill.API.Profile.Domain.Services;
+using ReGrill.API.Profile.Infrastucture.Persistence.EFC.Repositories;
+using ReGrill.API.Orders.Application.Internal.CommandServices;
+using ReGrill.API.Orders.Application.Internal.QueryServices;
+using ReGrill.API.Orders.Domain.Repositories;
+using ReGrill.API.Orders.Domain.Services;
+using ReGrill.API.Orders.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,12 +63,25 @@ else if (builder.Environment.IsProduction())
 
 // Configure Dependency Injection
 
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options => options.EnableAnnotations());
+
 // Shared Bounded Context Injection Configuration
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<IAdminStockRepository, AdminStockRepository>();
 builder.Services.AddScoped<IAdminStockCommandService, AdminStockCommandService>();
 builder.Services.AddScoped<IAdminStockQueryService, AdminStockQueryService>();
+//Colocar lo siguiente, usen como plantilla
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserCommandService, UserCommandService>();
+builder.Services.AddScoped<IUserQueryService, UserQueryService>();
+
+// Orders Bounded Context Injection Configuration
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOrderCommandService, OrderCommandService>();
+builder.Services.AddScoped<IOrderQueryService, OrderQueryService>();
 
 var app = builder.Build();
 
