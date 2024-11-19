@@ -14,6 +14,7 @@ public class AdminStockQueryService(IAdminStockRepository adminStockRepository) 
 
     public async Task<AdminStock?> Handle(GetAdminStockByIdQuery query)
     {
-        return await adminStockRepository.FindByIdAsync((int)query.StockId);
+        var guidFromInt = new Guid(query.StockId.ToString("D").PadLeft(32, '0'));
+        return await adminStockRepository.FindByIdAsync(guidFromInt);
     }
 }
