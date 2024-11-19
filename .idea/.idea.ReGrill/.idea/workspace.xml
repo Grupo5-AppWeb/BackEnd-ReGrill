@@ -9,7 +9,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff68cd4b-8a8e-4cc7-a867-b8bfa479aea0" name="Changes" comment="correct AdminStockQuery and UserQuery services" />
+    <list default="true" id="ff68cd4b-8a8e-4cc7-a867-b8bfa479aea0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Queries/GetAllAdminStockQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/ValueObjects/SupplierName.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Commands/DeleteOrderCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Commands/UpdateOrderCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Queries/GetOrdersByIdQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/Resources/DeleteOrderResource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/Transform/DeleteOrderCommandFromResourceAssembler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReGrill/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReGrill/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Application/Internal/QueryServices/AdminStockQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Application/Internal/QueryServices/AdminStockQueryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Aggregates/AdminStock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Aggregates/AdminStock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Commands/CreateAdminStockCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Commands/CreateAdminStockCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Queries/GetAdminStockByUserIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Queries/GetAdminStockBySupplierQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/ValueObjects/UserId.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Repositories/IAdminStockRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Repositories/IAdminStockRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Services/IAdminStockQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Services/IAdminStockQueryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Infrastructure/Persistence/EFC/Repositories/AdminStockRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Infrastructure/Persistence/EFC/Repositories/AdminStockRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/AdminStockController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/AdminStockController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Resources/AdminStockResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Resources/AdminStockResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Resources/CreateAdminStockResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Resources/CreateAdminStockResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Transform/AdminStockResourceFromEntityAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Transform/AdminStockResourceFromEntityAssembler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Transform/CreateAdminStockCommandFromResourceAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Transform/CreateAdminStockCommandFromResourceAssembler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Application/Internal/CommandServices/OrderCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Application/Internal/CommandServices/OrderCommandService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Application/Internal/QueryServices/OrderQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Application/Internal/QueryServices/OrderQueryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Aggregates/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Aggregates/Order.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Commands/CreateOrderCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Commands/CreateOrderCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Entities/OrderItem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Queries/GetOrderByIdQuery.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Services/IOrderCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Services/IOrderCommandService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Services/IOrderQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Services/IOrderQueryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Infrastructure/Repositories/OrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Infrastructure/Persistence/EFC/Repositories/OrderRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/OrdersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/OrdersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/Resources/CreateOrderResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/Resources/CreateOrderResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/Resources/OrderResource..cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/Resources/OrderResource..cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/Transform/CreateOrderCommandFromResourceAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/Transform/CreateOrderCommandFromResourceAssembler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/Transform/OrderResourceFromEntityAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/Transform/OrderResourceFromEntityAssembler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Profile/Application/Internal/QueryServices/UserQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Profile/Application/Internal/QueryServices/UserQueryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Shared/Domain/Repositories/IBaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Shared/Domain/Repositories/IBaseRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Shared/Infrastructure/Persistence/EFC/Repositories/BaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Shared/Infrastructure/Persistence/EFC/Repositories/BaseRepository.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,18 +67,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "AnthonyHuapaya"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AnthonyHuapaya&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Grupo5-AppWeb/BackEnd-ReGrill.git",
-    "accountId": "9fd5ccef-d23c-40d9-bdf9-90014c27cc42"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Grupo5-AppWeb/BackEnd-ReGrill.git&quot;,
+    &quot;accountId&quot;: &quot;9fd5ccef-d23c-40d9-bdf9-90014c27cc42&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://D:/BackEnd Github/ReGrill/ReGrill.API/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/BackEnd Github/ReGrill/ReGrill.API/Program.cs" root0="SKIP_HIGHLIGHTING" />
@@ -54,19 +95,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.ReGrill.API: http.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.ReGrill.API: http.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feature-adminStock-bounded-context",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.ReGrill.API: http">
     <configuration name="ReGrill.API: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/ReGrill.API/ReGrill.API.csproj" />

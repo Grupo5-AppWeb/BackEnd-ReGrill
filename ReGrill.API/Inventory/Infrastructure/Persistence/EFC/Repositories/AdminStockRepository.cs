@@ -8,8 +8,8 @@ namespace ReGrill.API.Inventory.Infrastructure.Persistence.EFC.Repositories;
 
 public class AdminStockRepository(AppDbContext context) : BaseRepository<AdminStock>(context), IAdminStockRepository
 {
-    public async Task<IEnumerable<AdminStock>> FindByUserIdAsync(long userId)
+    public async Task<IEnumerable<AdminStock>> FindBySupplierAsync(string supplier)
     {
-        return await Context.Set<AdminStock>().Where(a => a.UserId == userId).ToListAsync();
+        return await Context.Set<AdminStock>().Where(a => a.Supplier == supplier).ToListAsync();
     }
 }

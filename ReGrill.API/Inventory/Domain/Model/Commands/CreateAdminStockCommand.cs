@@ -1,3 +1,3 @@
 namespace ReGrill.API.Inventory.Domain.Model.Commands;
 
-public record CreateAdminStockCommand(long UserId, string Ingredient, string Quantity, DateTime Date = default);
+public record CreateAdminStockCommand(string Ingredient, string Quantity, string Supplier, DateTime Date = default);

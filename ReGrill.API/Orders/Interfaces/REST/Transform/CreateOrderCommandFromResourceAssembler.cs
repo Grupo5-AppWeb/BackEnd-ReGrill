@@ -10,6 +10,9 @@ public static class CreateOrderCommandFromResourceAssembler
     /// </summary>
     /// <param name="resource">The <see cref="CreateOrderResource"/> to assemble from.</param>
     /// <returns>The assembled <see cref="CreateOrderCommand"/>.</returns>
-    public static CreateOrderCommand ToCommandFromResource(CreateOrderResource resource) =>
-        new CreateOrderCommand(resource.OrderItems);
+    public static CreateOrderCommand ToCommandFromResource(CreateOrderResource resource)
+    {
+        return new CreateOrderCommand(resource.Cash, resource.Name, resource.Table, resource.Status, resource.Quantity,
+            resource.Time);
+    }
 }

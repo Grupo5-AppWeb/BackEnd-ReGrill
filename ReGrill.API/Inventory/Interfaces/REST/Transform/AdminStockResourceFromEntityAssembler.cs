@@ -8,6 +8,6 @@ public class AdminStockResourceFromEntityAssembler
 {
     public static AdminStockResource ToResourceFromEntity(AdminStock adminStock)
     {
-        return new AdminStockResource(adminStock.Id, adminStock.Date.ToString("yyyy-MM-dd"), adminStock.Ingredient, adminStock.Quantity, new UserId(adminStock.UserId));
+        return new AdminStockResource(adminStock.Id, adminStock.Date.ToString("yyyy-MM-dd"), adminStock.Ingredient, adminStock.Quantity, new SupplierName(adminStock.Supplier));
     }
 }

@@ -7,6 +7,6 @@ public class CreateAdminStockCommandFromResourceAssembler
 {
     public static CreateAdminStockCommand ToCommandFromResource(CreateAdminStockResource resource)
     {
-        return new CreateAdminStockCommand(resource.UserId, resource.Ingredient, resource.Quantity, resource.Date);
+        return new CreateAdminStockCommand(resource.Ingredient, resource.Quantity, resource.Supplier, resource.Date);
     }
 }

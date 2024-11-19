@@ -6,4 +6,8 @@ namespace ReGrill.API.Orders.Domain.Services;
 public interface IOrderCommandService
 {
     Task<Order?> Handle(CreateOrderCommand command);
+
+    Task Handle(DeleteOrderCommand command);
+
+    Task<Order?> Handle(UpdateOrderCommand command);
 }

@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Net.Mime;
 using ReGrill.API.Inventory.Domain.Model.Queries;
 using ReGrill.API.Inventory.Domain.Services;
@@ -54,26 +55,41 @@ public class AdminStockController(
 
         var resource = AdminStockResourceFromEntityAssembler.ToResourceFromEntity(result);
 
-        return Ok(result);
+        return Ok(resource);
     }
 
-    [HttpGet("userId/{id}")]
+    [HttpGet("supplier/{supplier}")]
     [SwaggerOperation(
-        Summary = "Get AdminStock by UserId",
-        Description = "Get AdminStock by UserId",
+        Summary = "Get AdminStock by Supplier",
+        Description = "Get AdminStock by Supplier",
         OperationId = "GetAdminStockByUserId")]
-    [SwaggerResponse(StatusCodes.Status200OK, "The AdminStock by UserId was found",
+    [SwaggerResponse(StatusCodes.Status200OK, "The AdminStock by Supplier was found",
         typeof(IEnumerable<AdminStockResource>))]
-    [SwaggerResponse(StatusCodes.Status404NotFound, "No AdminStock found by UserId")]
-    public async Task<ActionResult<IEnumerable<AdminStockResource>>> GetAdminStockByUserId(long id)
+    [SwaggerResponse(StatusCodes.Status404NotFound, "No AdminStock found by Supplier")]
+    public async Task<ActionResult<IEnumerable<AdminStockResource>>> GetAdminStockByUserId(string supplier)
     {
-        var userId = new UserId(id);
-        var getAdminStockByUserIdQuery = new GetAdminStockByUserIdQuery(userId);
-        var result = await adminStockQueryService.Handle(getAdminStockByUserIdQuery);
+        var supplierName = new SupplierName(supplier);
+        var getAdminStockBySupplierQuery = new GetAdminStockBySupplierQuery(supplierName);
+        var result = await adminStockQueryService.Handle(getAdminStockBySupplierQuery);
         if (result is null || !result.Any())
             return NotFound();
         var resources = result.Select(AdminStockResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(resources);
     }
-    
+
+    [HttpGet]
+    [SwaggerOperation(
+        Summary = "Get All AdminStock",
+        Description = "Get all AdminStock",
+        OperationId = "GetAllAdminStock")]
+    [SwaggerResponse(StatusCodes.Status200OK, "All AdminStock was found",
+        typeof(IEnumerable<AdminStockResource>))]
+    [SwaggerResponse(StatusCodes.Status404NotFound, "The AdminStock not found")]
+    public async Task<ActionResult> GetAllAdminStock()
+    {
+        var getAllAdminStockQuery = new GetAllAdminStockQuery();
+        var adminStock = await adminStockQueryService.Handle(getAllAdminStockQuery);
+        var adminStockResource = adminStock.Select(AdminStockResourceFromEntityAssembler.ToResourceFromEntity);
+        return Ok(adminStockResource);
+    }
 }

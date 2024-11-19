@@ -10,6 +10,10 @@ public static class OrderResourceFromEntityAssembler
     /// </summary>
     /// <param name="entity">The <see cref="Order"/> to assemble from.</param>
     /// <returns>The assembled <see cref="OrderResource"/>.</returns>
-    public static OrderResource ToResourceFromEntity(Order entity) =>
-        new OrderResource(entity.OrderId, entity.OrderDate, entity.OrderItems);
+    public static OrderResource ToResourceFromEntity(Order order)
+    {
+        return new OrderResource(order.Id, order.Cash, order.Name, order.Table, order.Time.ToString("HH:MM"),
+            order.Status, order.Quantity);
+    }
+        
 }

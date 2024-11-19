@@ -7,14 +7,18 @@ namespace ReGrill.API.Inventory.Application.Internal.QueryServices;
 
 public class AdminStockQueryService(IAdminStockRepository adminStockRepository) : IAdminStockQueryService
 {
-    public Task<IEnumerable<AdminStock>> Handle(GetAdminStockByUserIdQuery query)
+    public Task<IEnumerable<AdminStock>> Handle(GetAllAdminStockQuery query)
     {
-        return adminStockRepository.FindByUserIdAsync(query.UserId.Id);
+        return adminStockRepository.ListAsync();
+    }
+    
+    public Task<IEnumerable<AdminStock>> Handle(GetAdminStockBySupplierQuery query)
+    {
+        return adminStockRepository.FindBySupplierAsync(query.Supplier.Supplier);
     }
 
     public async Task<AdminStock?> Handle(GetAdminStockByIdQuery query)
     {
-        var guidFromInt = new Guid(query.StockId.ToString("D").PadLeft(32, '0'));
-        return await adminStockRepository.FindByIdAsync(guidFromInt);
+        return await adminStockRepository.FindByIdAsync((int)query.StockId);
     }
 }

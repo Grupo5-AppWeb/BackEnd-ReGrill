@@ -5,5 +5,5 @@ namespace ReGrill.API.Inventory.Domain.Repositories;
 
 public interface IAdminStockRepository : IBaseRepository<AdminStock>
 {
-    Task<IEnumerable<AdminStock>> FindByUserIdAsync(long userId);
+    Task<IEnumerable<AdminStock>> FindBySupplierAsync(string supplier);
 }

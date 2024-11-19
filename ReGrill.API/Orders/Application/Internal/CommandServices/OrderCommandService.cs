@@ -25,4 +25,40 @@ public class OrderCommandService(IOrderRepository orderRepository, IUnitOfWork u
 
         return order;
     }
+
+    public async Task Handle(DeleteOrderCommand command)
+    {
+        var order = await orderRepository.FindByIdAsync(command.Id);
+        if (order == null)
+        {
+            throw new ArgumentException("Order not found");
+        }
+
+        try
+        {
+            orderRepository.Remove(order);
+            await unitOfWork.CompleteAsync();
+        }
+        catch (Exception e)
+        {
+            throw new Exception("Error deleting order", e);
+        }
+    }
+
+    public async Task<Order?> Handle(UpdateOrderCommand command)
+    {
+        var order = await orderRepository.FindByIdAsync(command.Id);
+        if (order == null)
+            throw new ArgumentException("Order not found");
+        try
+        {
+            orderRepository.Update(order);
+            await unitOfWork.CompleteAsync();
+            return order;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
 }

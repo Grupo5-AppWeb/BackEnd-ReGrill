@@ -18,7 +18,7 @@ using ReGrill.API.Orders.Application.Internal.CommandServices;
 using ReGrill.API.Orders.Application.Internal.QueryServices;
 using ReGrill.API.Orders.Domain.Repositories;
 using ReGrill.API.Orders.Domain.Services;
-using ReGrill.API.Orders.Infrastructure.Repositories;
+using ReGrill.API.Orders.Infrastructure.Persistence.EFC.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

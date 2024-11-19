@@ -7,5 +7,5 @@ public record AdminStockResource(
     string Date,
     string Ingredient,
     string Quantity,
-    UserId UserId
+    SupplierName Supplier
 );

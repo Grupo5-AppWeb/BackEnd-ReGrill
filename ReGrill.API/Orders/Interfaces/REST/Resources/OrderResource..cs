@@ -1,5 +1,10 @@
-using ReGrill.API.Orders.Domain.Model.Entities;
-
 namespace ReGrill.API.Orders.Interfaces.REST.Resources;
 
-public record OrderResource(Guid OrderId, DateTime OrderDate, List<OrderItem> OrderItems);
+public record OrderResource(
+    long Id,
+    int Cash,
+    string Name,
+    int Table,
+    string Time,
+    string Status,
+    int Quantity);

@@ -6,5 +6,5 @@ namespace ReGrill.API.Orders.Domain.Services;
 public interface IOrderQueryService
 {
     Task<IEnumerable<Order>> Handle(GetAllOrdersQuery query);
-    Task<Order> Handle(GetOrderByIdQuery query);
+    Task<Order?> Handle(GetOrdersByIdQuery query);
 }

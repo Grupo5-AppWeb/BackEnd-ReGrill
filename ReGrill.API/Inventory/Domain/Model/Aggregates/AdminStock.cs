@@ -10,20 +10,19 @@ public partial class AdminStock
     public string Ingredient { get; private set; }
     public string Quantity { get; private set; }
     
-    public long UserId { get; private set; }
+    public string Supplier { get; private set; }
     
-    public UserId UserIdValue { get; private set; }
+    public SupplierName SupplierNameValue { get; private set; }  
     
-
     public AdminStock()
     {
     }
 
     public AdminStock(CreateAdminStockCommand command)
     {
-        UserIdValue = new UserId(command.UserId);
+        SupplierNameValue = new SupplierName(command.Supplier);
         
-        UserId = command.UserId;
+        Supplier = command.Supplier;
         Date = command.Date;
         Ingredient = command.Ingredient;
         Quantity = command.Quantity;
