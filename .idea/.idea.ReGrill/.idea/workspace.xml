@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff68cd4b-8a8e-4cc7-a867-b8bfa479aea0" name="Changes" comment="">
+    <list default="true" id="ff68cd4b-8a8e-4cc7-a867-b8bfa479aea0" name="Changes" comment="Correct Orders Endpoint and add Get All for AdminStock">
       <change afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Queries/GetAllAdminStockQuery.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/ValueObjects/SupplierName.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Commands/DeleteOrderCommand.cs" afterDir="false" />
@@ -182,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732041623758</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Correct Orders Endpoint and add Get All for AdminStock">
+      <option name="closed" value="true" />
+      <created>1732057176020</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732057176020</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +202,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="add .idea files" />
     <MESSAGE value="correct AdminStockQuery and UserQuery services" />
-    <option name="LAST_COMMIT_MESSAGE" value="correct AdminStockQuery and UserQuery services" />
+    <MESSAGE value="Correct Orders Endpoint and add Get All for AdminStock" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correct Orders Endpoint and add Get All for AdminStock" />
   </component>
 </project>
