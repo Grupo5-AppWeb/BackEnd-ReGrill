@@ -1,3 +1,5 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ReGrill.API.Inventory.Application.Internal.CommandServices;
 using ReGrill.API.Inventory.Application.Internal.QueryServices;
 using ReGrill.API.Inventory.Domain.Repositories;
@@ -9,6 +11,30 @@ using ReGrill.API.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using ReGrill.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using ReGrill.API.Shared.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using ReGrill.API.IAM.Application.Internal.CommandServices.Credential;
+using ReGrill.API.IAM.Application.Internal.CommandServices.Roles;
+using ReGrill.API.IAM.Application.Internal.CommandServices.Users;
+using ReGrill.API.IAM.Application.Internal.OutboundContext;
+using ReGrill.API.IAM.Application.Internal.QueryServices.Credential;
+using ReGrill.API.IAM.Application.Internal.QueryServices.Roles;
+using ReGrill.API.IAM.Application.Internal.QueryServices.Users;
+using ReGrill.API.IAM.Domain.Repositories.Credential;
+using ReGrill.API.IAM.Domain.Repositories.Roles;
+using ReGrill.API.IAM.Domain.Repositories.Users;
+using ReGrill.API.IAM.Domain.Services.Roles;
+using ReGrill.API.IAM.Domain.Services.UserCredentials.Administration;
+using ReGrill.API.IAM.Domain.Services.UserCredentials.Supplier;
+using ReGrill.API.IAM.Domain.Services.Users.Administration;
+using ReGrill.API.IAM.Domain.Services.Users.Supply;
+using ReGrill.API.IAM.Infrastructure.Hashing.Argon2ld.Services;
+using ReGrill.API.IAM.Infrastructure.Persistence.EFC.Repositories.Credential;
+using ReGrill.API.IAM.Infrastructure.Persistence.EFC.Repositories.Roles;
+using ReGrill.API.IAM.Infrastructure.Persistence.EFC.Repositories.Users;
+using ReGrill.API.IAM.Infrastructure.Poblation.Roles;
+using ReGrill.API.IAM.Infrastructure.Tokens.JWT.Configuration;
+using ReGrill.API.IAM.Infrastructure.Tokens.JWT.Services;
 using ReGrill.API.Profile.Application.Internal.CommandServices;
 using ReGrill.API.Profile.Application.Internal.QueryServices;
 using ReGrill.API.Profile.Domain.Repositories;
@@ -32,7 +58,51 @@ builder.Services.AddControllers(options => options.Conventions.Add(new KebabCase
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options => options.EnableAnnotations());
+builder.Services.AddSwaggerGen(
+    c =>
+    {
+        c.SwaggerDoc("v1",
+            new OpenApiInfo
+            {
+                Title = "Sweet Manager API",
+                Version = "v1",
+                Description = "Sweet Manager API",
+                TermsOfService = new Uri("https://acme-learning.com/tos"),
+                Contact = new OpenApiContact
+                {
+                    Name = "Sweet Manager Studios",
+                    Email = "contact@swm.com"
+                },
+                License = new OpenApiLicense
+                {
+                    Name = "Apache 2.0",
+                    Url = new Uri("https://www.apache.org/licenses/LICENSE-2.0.html")
+                }
+            });
+        c.EnableAnnotations();
+        c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+            In = ParameterLocation.Header,
+            Description = "Please enter token",
+            Name = "Authorization",
+            Type = SecuritySchemeType.Http,
+            BearerFormat = "JWT",
+            Scheme = "bearer"
+        });
+        c.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference
+                    {
+                        Id = "Bearer", Type = ReferenceType.SecurityScheme
+                    } 
+                }, 
+                Array.Empty<string>()
+            }
+        });
+    });
 
 // Add Database Connection
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -83,6 +153,74 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderCommandService, OrderCommandService>();
 builder.Services.AddScoped<IOrderQueryService, OrderQueryService>();
 
+// IAM Bounded Context Injection Configuration
+
+//builder.Services.AddScoped<IIamContextFacade, IamContextFacade>();
+builder.Services.AddScoped<IHashingService, HashingServices>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IRoleCommandService, RoleCommandService>();
+builder.Services.AddScoped<IRoleQueryService, RoleQueryService>();
+builder.Services.AddScoped<ISupplierCredentialRepository, SupplierCredentialRepository>();
+builder.Services.AddScoped<IAdministratorCredentialRepository, AdministratorCredentialRepository>();
+builder.Services.AddScoped<IAdministratorCredentialCommandService, AdministratorCredentialCommandService>();
+builder.Services.AddScoped<IAdministratorCredentialQueryService, AdministratorCredentialQueryService>();
+builder.Services.AddScoped<ISupplierCredentialRepository, SupplierCredentialRepository>();
+builder.Services.AddScoped<ISupplierCredentialCommandService, SupplierCredentialCommandService>();
+builder.Services.AddScoped<ISupplierCredentialQueryService, SupplierCredentialQueryService>();
+builder.Services.AddScoped<IAdministratorRepository, AdministratorRepository>();
+builder.Services.AddScoped<IAdministratorCommandService, AdministratorCommandService>();
+builder.Services.AddScoped<IAdministratorQueryService, AdministratorQueryService>();
+builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
+builder.Services.AddScoped<ISupplierCommandService, SupplierCommandService>();
+builder.Services.AddScoped<ISupplierQueryService, SupplierQueryService>();
+
+builder.Services.AddScoped<DatabaseInitializer>();
+
+
+
+#region TOKEN CONFIGURATION
+
+var tokenSettings = builder.Configuration.GetSection("TokenSettings");
+
+builder.Services.Configure<TokenSettings>(tokenSettings);
+
+var secretKey = tokenSettings["Secret"];
+
+var audience = tokenSettings["Audience"];
+
+var issuer = tokenSettings["Issuer"];
+
+var securityKey = !string.IsNullOrEmpty(secretKey)
+    ? new SymmetricSecurityKey(Encoding.Default.GetBytes(secretKey))
+    : throw new ArgumentException("Secret key is null or empty");
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = issuer,
+        ValidAudience = audience,
+        IssuerSigningKey = securityKey,
+        ClockSkew = TimeSpan.Zero
+    };
+});
+
+builder.Services.AddScoped<ITokenService, TokenService>();
+
+builder.Services.AddTransient<TokenValidationHandler>();
+
+builder.Services.AddAuthorization();
+
+#endregion
+
 var app = builder.Build();
 
 // Verify Database Objects are created
@@ -92,6 +230,7 @@ using (var scope = app.Services.CreateScope())
     var context = services.GetRequiredService<AppDbContext>();
     context.Database.EnsureCreated();
 }
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
