@@ -7,7 +7,7 @@ public class UpdateOrderCommandFromResourceAssembler
 {
     public static UpdateOrderCommand ToCommandFromResource(int id, UpdateOrderResource resource)
     {
-        return new UpdateOrderCommand(id, resource.Cash, resource.Name, resource.Table,
+        return new UpdateOrderCommand(id, resource.Cash, resource.Name, resource.Table, resource.Time,
             resource.Status, resource.Quantity);
     }
 }

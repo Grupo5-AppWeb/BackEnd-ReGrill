@@ -1,6 +1,5 @@
 using System.Net.Mime;
 using Microsoft.AspNetCore.Mvc;
-using ReGrill.API.Orders.Domain.Model.Commands;
 using ReGrill.API.Orders.Domain.Model.Queries;
 using ReGrill.API.Orders.Domain.Services;
 using ReGrill.API.Orders.Interfaces.REST.Resources;
@@ -66,7 +65,7 @@ public class OrdersController(IOrderCommandService orderCommandService, IOrderQu
         return NoContent();
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{id:int}")]
     [SwaggerOperation(
         Summary = "Update the order",
         Description = "Update an specified order",
@@ -76,12 +75,13 @@ public class OrdersController(IOrderCommandService orderCommandService, IOrderQu
     [SwaggerResponse(StatusCodes.Status404NotFound, Description = "Order was not found")]
     public async Task<IActionResult> UpdateOrder(int id, [FromBody] UpdateOrderResource resource)
     {
-        if (id <= 0 || resource.Id == 0)
+        if (id <= 0)
             return BadRequest("Invalid resource data");
         var updateOrderCommand = UpdateOrderCommandFromResourceAssembler.ToCommandFromResource(id, resource);
         var result = await orderCommandService.Handle(updateOrderCommand);
         if (result == null)
             return NotFound("The order was not found");
-        return Ok("The order was updated successfully");
+        var updatedResource = OrderResourceFromEntityAssembler.ToResourceFromEntity(result);
+        return Ok(updatedResource);
     }
 }
