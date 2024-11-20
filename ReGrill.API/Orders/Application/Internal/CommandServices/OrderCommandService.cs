@@ -58,7 +58,7 @@ public class OrderCommandService(IOrderRepository orderRepository, IUnitOfWork u
         }
         catch (Exception e)
         {
-            return null;
+            throw new Exception("Error updating order", e);
         }
     }
 }
