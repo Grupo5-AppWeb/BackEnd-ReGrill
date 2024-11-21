@@ -35,6 +35,11 @@ using ReGrill.API.IAM.Infrastructure.Persistence.EFC.Repositories.Users;
 using ReGrill.API.IAM.Infrastructure.Poblation.Roles;
 using ReGrill.API.IAM.Infrastructure.Tokens.JWT.Configuration;
 using ReGrill.API.IAM.Infrastructure.Tokens.JWT.Services;
+using ReGrill.API.Invoices.Application.Internal.CommandServices;
+using ReGrill.API.Invoices.Application.Internal.QueryServices;
+using ReGrill.API.Invoices.Domain.Repositories;
+using ReGrill.API.Invoices.Domain.Services;
+using ReGrill.API.Invoices.Infrastructure.Persistence.EFC.Repositories;
 using ReGrill.API.Profile.Application.Internal.CommandServices;
 using ReGrill.API.Profile.Application.Internal.QueryServices;
 using ReGrill.API.Profile.Domain.Repositories;
@@ -158,6 +163,12 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderCommandService, OrderCommandService>();
 builder.Services.AddScoped<IOrderQueryService, OrderQueryService>();
 
+//Invoice Bounded Context Injection Configuration
+builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+builder.Services.AddScoped<IInvoiceCommandService, InvoiceCommandService>();
+builder.Services.AddScoped<IInvoiceQueryService, InvoiceQueryService>();
+
+
 // IAM Bounded Context Injection Configuration
 builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
 builder.Services.AddScoped<IRecipeCommandService, RecipeCommandService>();
@@ -248,7 +259,8 @@ using (var scope = app.Services.CreateScope())
     context.Database.EnsureCreated();
 }
 
-
+// Usar la política de CORS
+app.UseCors("AllowFrontend");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
