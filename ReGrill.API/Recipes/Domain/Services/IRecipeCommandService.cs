@@ -7,7 +7,7 @@ public interface IRecipeCommandService
 {
     Task<Recipe?> Handle(CreateRecipesCommand command);
 
-    //Task Handle(DeleteRecipeCommand command);
+    Task Handle(DeleteRecipeCommand command);
 
     //Task<Recipe?> Handle(UpdateRecipeCommand command);
 }

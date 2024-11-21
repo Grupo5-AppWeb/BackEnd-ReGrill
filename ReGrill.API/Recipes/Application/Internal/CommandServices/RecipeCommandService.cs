@@ -8,13 +8,13 @@ namespace ReGrill.API.Recipes.Application.Internal.CommandServices;
 
 public class RecipeCommandService(IRecipeRepository recipeRepository, IUnitOfWork unitOfWork) : IRecipeCommandService
 {
-    public async Task<Recipe?> Handle(CreateRecipesCommand command)
+   public async Task<Recipe?> Handle(CreateRecipesCommand command)
     {
         
-        var recipe = new Recipe(command);
+        var order = new Recipe(command);
         try
         {
-            await recipeRepository.AddAsync(recipe);
+            await recipeRepository.AddAsync(order);
             await unitOfWork.CompleteAsync();
         }
         catch (Exception e)
@@ -23,12 +23,11 @@ public class RecipeCommandService(IRecipeRepository recipeRepository, IUnitOfWor
             return null;
         }
 
-        return recipe;
+        return order;
     }
-
-    /*public async Task Handle(DeleteOrderCommand command)
+    public async Task Handle(DeleteRecipeCommand command)
     {
-        var order = await orderRepository.FindByIdAsync(command.Id);
+        var order = await recipeRepository.FindByIdAsync(command.Id);
         if (order == null)
         {
             throw new ArgumentException("Order not found");
@@ -36,7 +35,7 @@ public class RecipeCommandService(IRecipeRepository recipeRepository, IUnitOfWor
 
         try
         {
-            orderRepository.Remove(order);
+            recipeRepository.Remove(order);
             await unitOfWork.CompleteAsync();
         }
         catch (Exception e)
@@ -45,7 +44,7 @@ public class RecipeCommandService(IRecipeRepository recipeRepository, IUnitOfWor
         }
     }
 
-    public async Task<Order?> Handle(UpdateOrderCommand command)
+    /*public async Task<Order?> Handle(UpdateOrderCommand command)
     {
         var order = await orderRepository.FindByIdAsync(command.Id);
         if (order == null)
