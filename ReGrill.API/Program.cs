@@ -176,6 +176,17 @@ builder.Services.AddScoped<ISupplierQueryService, SupplierQueryService>();
 
 builder.Services.AddScoped<DatabaseInitializer>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") // Cambia esto a la URL de tu frontend
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials(); // Permite credenciales como cookies o tokens
+    });
+});
+
 
 
 #region TOKEN CONFIGURATION
@@ -231,7 +242,8 @@ using (var scope = app.Services.CreateScope())
     context.Database.EnsureCreated();
 }
 
-
+// Usar la política de CORS
+app.UseCors("AllowFrontend");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
