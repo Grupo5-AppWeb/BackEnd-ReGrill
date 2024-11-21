@@ -152,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732057176020</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add cors">
+      <option name="closed" value="true" />
+      <created>1732169163473</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732169163473</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +173,7 @@
     <MESSAGE value="add .idea files" />
     <MESSAGE value="correct AdminStockQuery and UserQuery services" />
     <MESSAGE value="Correct Orders Endpoint and add Get All for AdminStock" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="add cors" />
+    <option name="LAST_COMMIT_MESSAGE" value="add cors" />
   </component>
 </project>
