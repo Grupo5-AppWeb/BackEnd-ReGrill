@@ -6,6 +6,7 @@ using ReGrill.API.IAM.Domain.Model.Aggregates.Management;
 using ReGrill.API.IAM.Domain.Model.Aggregates.Supplier;
 using ReGrill.API.IAM.Domain.Model.Entities.Credential;
 using ReGrill.API.IAM.Domain.Model.Entities.Roles.Standard;
+using ReGrill.API.Invoices.Domain.Model.Aggregates;
 using ReGrill.API.Profile.Domain.Model.Aggregates;
 using ReGrill.API.Orders.Domain.Model.Aggregates;
 
@@ -14,6 +15,7 @@ namespace ReGrill.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 public class AppDbContext(DbContextOptions options) : DbContext(options)
 {
     public DbSet<User> Users { get; set; }
+    
    
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
@@ -42,6 +44,16 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         builder.Entity<Order>().Property(a => a.Time).IsRequired();
         builder.Entity<Order>().Property(a => a.Status).IsRequired();
         builder.Entity<Order>().Property(a => a.Quantity).IsRequired();
+        
+        
+        builder.Entity<Invoice>().ToTable("invoices").HasKey(a => a.Id);
+        builder.Entity<Invoice>().Property(a => a.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Invoice>().Property(a => a.InvoiceNumber).IsRequired();
+        builder.Entity<Invoice>().Property(a => a.Date).IsRequired();
+        builder.Entity<Invoice>().Property(a => a.Client).IsRequired();
+        builder.Entity<Invoice>().Property(a => a.Total).IsRequired();
+        builder.Entity<Invoice>().Property(a => a.Status).IsRequired();
+        
         
         
          // IAM Context
