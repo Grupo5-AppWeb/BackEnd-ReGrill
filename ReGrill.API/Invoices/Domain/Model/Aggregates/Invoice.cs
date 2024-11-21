@@ -6,7 +6,7 @@ public class Invoice
 {
     public int Id { get; private set; }
     public string InvoiceNumber { get; private set; }
-    public string Date { get; private set; }
+    public DateTime Date { get; private set; }
     public string Client { get; private set; }
     public int Total { get; private set; }
     public string Status { get; private set; }
@@ -19,7 +19,7 @@ public class Invoice
     {
         InvoiceNumber = command.InvoiceNumber;
         Date = command.Date;
-        Client = command.Date;
+        Client = command.Client;
         Total = command.Total;
         Status = command.Status;
        

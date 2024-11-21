@@ -15,6 +15,6 @@ public static class CreateRecipeCommandFromResourceAssembler
             Cost = i.Cost
         }).ToList();
         return new CreateRecipesCommand(resource.Name, resource.Category, resource.Description,
-            ingredients);
+            ingredients, resource.Image);
     }
 }

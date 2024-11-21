@@ -2,4 +2,5 @@
 
 namespace ReGrill.API.Recipes.Domain.Model.Commands;
 
-public record CreateRecipesCommand(string Name, string Category, string Description, List<Ingredient> Ingredients);
+public record CreateRecipesCommand(string Name, string Category, string Description, 
+    List<Ingredient> Ingredients, string Image);

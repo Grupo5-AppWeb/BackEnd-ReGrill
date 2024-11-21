@@ -79,13 +79,13 @@ builder.Services.AddSwaggerGen(
         c.SwaggerDoc("v1",
             new OpenApiInfo
             {
-                Title = "Sweet Manager API",
+                Title = "Re-Grill API",
                 Version = "v1",
-                Description = "Sweet Manager API",
+                Description = "Re-Grill API",
                 TermsOfService = new Uri("https://acme-learning.com/tos"),
                 Contact = new OpenApiContact
                 {
-                    Name = "Sweet Manager Studios",
+                    Name = "Re-Grill Manager",
                     Email = "contact@swm.com"
                 },
                 License = new OpenApiLicense

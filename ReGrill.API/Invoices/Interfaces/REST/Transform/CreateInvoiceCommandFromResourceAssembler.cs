@@ -10,6 +10,7 @@ public static class CreateInvoiceCommandFromResourceAssembler
 
     public static CreateInvoiceCommand ToCommandFromResource(CreateInvoiceResource resource)
     {
-        return new CreateInvoiceCommand(resource.InvoiceNumber, resource.Date, resource.Client, resource.Total, resource.Status);
+        return new CreateInvoiceCommand(resource.InvoiceNumber, resource.Client, resource.Total, resource.Status,
+            resource.Date);
     }
 }

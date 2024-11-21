@@ -10,6 +10,6 @@ public static class RecipeResourceFromEntityAssembler
         var ingredients = recipe.Ingredients.Select(i => new IngredientsResource
         (i.Name, i.Quantity, i.Cost)).ToList();
         return new RecipeResource(recipe.Id, recipe.Name, recipe.Category, recipe.Description,
-            ingredients);
+            ingredients, recipe.Image);
     }
 }

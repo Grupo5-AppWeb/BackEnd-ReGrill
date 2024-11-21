@@ -9,6 +9,7 @@ public class Recipe
     public string Category { get; private set; }
     public string Description { get; private set; }
     public List<Ingredient> Ingredients { get; private set; }
+    public string Image { get; private set; }
 
     public Recipe()
     {
@@ -20,5 +21,6 @@ public class Recipe
         Category = command.Category;
         Description = command.Description;
         Ingredients = command.Ingredients;
+        Image = command.Image;
     }
 }
