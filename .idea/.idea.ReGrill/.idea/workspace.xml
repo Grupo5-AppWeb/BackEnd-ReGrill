@@ -10,35 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff68cd4b-8a8e-4cc7-a867-b8bfa479aea0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Application/Internal/CommandServices/RecipeCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Application/Internal/QueryServices/RecipeQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Model/Aggregates/Ingredient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Model/Aggregates/Recipe.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Model/Commands/CreateRecipesCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Model/Queries/GetAllRecipesQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Model/Queries/GetRecipeByIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Repositories/IRecipeRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Services/IRecipeCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Services/IRecipeQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Infrastructure/Persistence/EFC/Repositories/RecipeRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/RecipeController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/Resources/CreateRecipeResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/Resources/IngredientsResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/Resources/RecipeResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/Transform/CreateRecipeCommandFromResourceAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/Transform/RecipeResourceFromEntityAssembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReGrill/.idea/.name" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Model/Commands/DeleteRecipeCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/Resources/DeleteRecipeResource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/Transform/DeleteRecipeCommandFromResourceAssembler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReGrill/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReGrill/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/AdminStockController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/AdminStockController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Application/Internal/CommandServices/OrderCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Application/Internal/CommandServices/OrderCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Aggregates/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Aggregates/Order.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Commands/UpdateOrderCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Commands/UpdateOrderCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/OrdersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/OrdersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Profile/Interfaces/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Profile/Interfaces/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Shared/Domain/Repositories/IBaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Shared/Domain/Repositories/IBaseRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Shared/Infrastructure/Persistence/EFC/Repositories/BaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Shared/Infrastructure/Persistence/EFC/Repositories/BaseRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Recipes/Application/Internal/CommandServices/RecipeCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Application/Internal/CommandServices/RecipeCommandService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Services/IRecipeCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Services/IRecipeCommandService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/RecipeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/RecipeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReGrill.API/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/appsettings.Development.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReGrill.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/appsettings.json" afterDir="false" />
     </list>
@@ -53,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature-user" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -67,7 +45,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Grupo5-AppWeb/BackEnd-ReGrill.git&quot;,
-    &quot;accountId&quot;: &quot;9fd5ccef-d23c-40d9-bdf9-90014c27cc42&quot;
+    &quot;accountId&quot;: &quot;25462357-93bd-4dff-9390-216278995ed6&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">

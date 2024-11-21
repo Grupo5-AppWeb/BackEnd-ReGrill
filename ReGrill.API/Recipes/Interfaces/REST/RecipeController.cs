@@ -37,6 +37,21 @@ public class RecipeController(IRecipeCommandService recipeCommandService, IRecip
         var resource = RecipeResourceFromEntityAssembler.ToResourceFromEntity(result);
         return Ok(resource);
     }
+    [HttpDelete("{recipeId:int}")]
+    [SwaggerOperation(
+        Summary = "Delete Recipe",
+        Description = "Delete an recipe",
+        OperationId = "DeleteRecipe")]
+    [SwaggerResponse(StatusCodes.Status204NoContent, "The recipe was deleted")]
+    [SwaggerResponse(StatusCodes.Status404NotFound, "The recipe was not found")]
+    public async Task<IActionResult> DeleteRecipe(int recipeId)
+    {
+        var resource = new DeleteRecipeResource(recipeId);
+        var deleteRecipeCommand = DeleteRecipeCommandFromResourceAssembler.ToCommandFromResource(resource);
+        await recipeCommandService.Handle(deleteRecipeCommand);
+        return NoContent();
+    }
+
     
     [HttpGet]
     [SwaggerOperation("Get All Recipes", "Get all recipes.", OperationId = "GetAllRecipes")]
