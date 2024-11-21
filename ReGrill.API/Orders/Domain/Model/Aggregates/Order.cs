@@ -25,4 +25,14 @@ public class Order
         Status = command.Status;
         Quantity = command.Quantity;
     }
+
+    public void Update(UpdateOrderCommand command)
+    {
+        Cash = command.Cash;
+        Name = command.Name;
+        Table = command.Table;
+        Time = command.Time;
+        Status = command.Status;
+        Quantity = command.Quantity;
+    }
 }

@@ -10,7 +10,7 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace AquaEngine.API.Control.Interfaces.REST;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v1/[controller]")]
 [Produces(MediaTypeNames.Application.Json)]
 [Tags("Users")]
 public class UsersController(IUserCommandService userCommandService, 

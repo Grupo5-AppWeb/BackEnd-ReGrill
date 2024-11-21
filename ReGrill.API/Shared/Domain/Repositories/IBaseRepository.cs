@@ -40,4 +40,6 @@ public interface IBaseRepository<TEntity>
     /// </summary>
     /// <returns>An Enumerable containing all entity objects</returns>
     Task<IEnumerable<TEntity>> ListAsync();
+
+    IQueryable<TEntity> GetAll();
 }

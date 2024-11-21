@@ -11,7 +11,7 @@ using ReGrill.API.Inventory.Domain.Model.ValueObjects;
 namespace ReGrill.API.Inventory.Interfaces.REST;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v1/[controller]")]
 [Produces(MediaTypeNames.Application.Json)]
 [Tags("AdminStock")]
 public class AdminStockController(

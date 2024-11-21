@@ -50,4 +50,9 @@ public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : 
     {
         return await Context.Set<TEntity>().ToListAsync();
     }
+    
+    public IQueryable<TEntity> GetAll()
+    {
+        return Context.Set<TEntity>();
+    }
 }

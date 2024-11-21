@@ -8,6 +8,7 @@ using ReGrill.API.IAM.Domain.Model.Entities.Credential;
 using ReGrill.API.IAM.Domain.Model.Entities.Roles.Standard;
 using ReGrill.API.Profile.Domain.Model.Aggregates;
 using ReGrill.API.Orders.Domain.Model.Aggregates;
+using ReGrill.API.Recipes.Domain.Model.Aggregates;
 
 namespace ReGrill.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 
@@ -43,6 +44,16 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         builder.Entity<Order>().Property(a => a.Status).IsRequired();
         builder.Entity<Order>().Property(a => a.Quantity).IsRequired();
         
+        builder.Entity<Recipe>().ToTable("recipes").HasKey(a => a.Id);
+        builder.Entity<Recipe>().Property(a => a.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Recipe>().Property(a => a.Name).IsRequired();
+        builder.Entity<Recipe>().Property(a => a.Category).IsRequired();
+        builder.Entity<Recipe>().Property(a => a.Description).IsRequired();
+        builder.Entity<Recipe>()
+            .HasMany(r => r.Ingredients)
+            .WithOne()
+            .HasForeignKey(i => i.RecipeId)
+            .OnDelete(DeleteBehavior.Cascade);
         
          // IAM Context
         

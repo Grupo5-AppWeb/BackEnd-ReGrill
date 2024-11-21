@@ -1,20 +1,20 @@
-using ReGrill.API.Orders.Domain.Model.Aggregates;
-using ReGrill.API.Orders.Domain.Model.Commands;
-using ReGrill.API.Orders.Domain.Repositories;
-using ReGrill.API.Orders.Domain.Services;
+﻿using ReGrill.API.Recipes.Domain.Model.Aggregates;
+using ReGrill.API.Recipes.Domain.Model.Commands;
+using ReGrill.API.Recipes.Domain.Repositories;
+using ReGrill.API.Recipes.Domain.Services;
 using ReGrill.API.Shared.Domain.Repositories;
 
-namespace ReGrill.API.Orders.Application.Internal.CommandServices;
+namespace ReGrill.API.Recipes.Application.Internal.CommandServices;
 
-public class OrderCommandService(IOrderRepository orderRepository, IUnitOfWork unitOfWork) : IOrderCommandService
+public class RecipeCommandService(IRecipeRepository recipeRepository, IUnitOfWork unitOfWork) : IRecipeCommandService
 {
-    public async Task<Order?> Handle(CreateOrderCommand command)
+    public async Task<Recipe?> Handle(CreateRecipesCommand command)
     {
         
-        var order = new Order(command);
+        var recipe = new Recipe(command);
         try
         {
-            await orderRepository.AddAsync(order);
+            await recipeRepository.AddAsync(recipe);
             await unitOfWork.CompleteAsync();
         }
         catch (Exception e)
@@ -23,10 +23,10 @@ public class OrderCommandService(IOrderRepository orderRepository, IUnitOfWork u
             return null;
         }
 
-        return order;
+        return recipe;
     }
 
-    public async Task Handle(DeleteOrderCommand command)
+    /*public async Task Handle(DeleteOrderCommand command)
     {
         var order = await orderRepository.FindByIdAsync(command.Id);
         if (order == null)
@@ -52,7 +52,6 @@ public class OrderCommandService(IOrderRepository orderRepository, IUnitOfWork u
             throw new ArgumentException("Order not found");
         try
         {
-            order.Update(command);
             orderRepository.Update(order);
             await unitOfWork.CompleteAsync();
             return order;
@@ -61,5 +60,5 @@ public class OrderCommandService(IOrderRepository orderRepository, IUnitOfWork u
         {
             throw new Exception("Error updating order", e);
         }
-    }
+    }*/
 }

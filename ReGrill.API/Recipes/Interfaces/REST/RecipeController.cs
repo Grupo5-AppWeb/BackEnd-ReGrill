@@ -1,56 +1,56 @@
-using System.Net.Mime;
+﻿using System.Net.Mime;
 using Microsoft.AspNetCore.Mvc;
-using ReGrill.API.Orders.Domain.Model.Queries;
-using ReGrill.API.Orders.Domain.Services;
-using ReGrill.API.Orders.Interfaces.REST.Resources;
-using ReGrill.API.Orders.Interfaces.REST.Transform;
+using ReGrill.API.Recipes.Domain.Model.Queries;
+using ReGrill.API.Recipes.Domain.Services;
+using ReGrill.API.Recipes.Interfaces.REST.Resources;
+using ReGrill.API.Recipes.Interfaces.REST.Transform;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace ReGrill.API.Orders.Interfaces.REST;
+namespace ReGrill.API.Recipes.Interfaces.REST;
 [ApiController]
 [Route("api/v1/[controller]")]
 [Produces(MediaTypeNames.Application.Json)]
-[SwaggerTag("Available Order Endpoints")]
-public class OrdersController(IOrderCommandService orderCommandService, IOrderQueryService orderQueryService): ControllerBase
+[SwaggerTag("Available Recipe Endpoints")]
+public class RecipeController(IRecipeCommandService recipeCommandService, IRecipeQueryService recipeQueryService): ControllerBase
 {
     [HttpPost]
-    [SwaggerOperation("Create Order", "Create new order.", OperationId = "CreateOrder")]
-    [SwaggerResponse(201, "Order created successfully.", typeof(OrderResource))]
-    [SwaggerResponse(400, "The order was not created")]
-    public async Task<IActionResult> CreateOrder([FromBody] CreateOrderResource resource)
+    [SwaggerOperation("Create Recipe", "Create new recipe.", OperationId = "CreateRecipe")]
+    [SwaggerResponse(201, "Recipe created successfully.", typeof(RecipeResource))]
+    [SwaggerResponse(400, "The recipe was not created")]
+    public async Task<IActionResult> CreateRecipe([FromBody] CreateRecipeResource resource)
     {
-        var createOrderCommand = CreateOrderCommandFromResourceAssembler.ToCommandFromResource(resource);
-        var result = await orderCommandService.Handle(createOrderCommand);
+        var createRecipeCommand = CreateRecipeCommandFromResourceAssembler.ToCommandFromResource(resource);
+        var result = await recipeCommandService.Handle(createRecipeCommand);
         if (result is null) return BadRequest();
-        return CreatedAtAction(nameof(GetOrderById), new { id = result.Id }, OrderResourceFromEntityAssembler.ToResourceFromEntity(result));
+        return CreatedAtAction(nameof(GetRecipeById), new { id = result.Id }, RecipeResourceFromEntityAssembler.ToResourceFromEntity(result));
     }
     
     [HttpGet("{id}")]
-    [SwaggerOperation("Get Order", "Get order by id.", OperationId = "GetOrder")]
-    [SwaggerResponse(200, "Order found.", typeof(OrderResource))]
+    [SwaggerOperation("Get Recipe", "Get recipe by id.", OperationId = "GetRecipeById")]
+    [SwaggerResponse(200, "Order found.", typeof(RecipeResource))]
     [SwaggerResponse(404, "Order not found.")]
-    public async Task<IActionResult> GetOrderById(int id)
+    public async Task<IActionResult> GetRecipeById(int id)
     {
-        var getOrderByIdQuery = new GetOrdersByIdQuery(id);
-        var result = await orderQueryService.Handle(getOrderByIdQuery);
+        var getRecipeByIdQuery = new GetRecipeByIdQuery(id);
+        var result = await recipeQueryService.Handle(getRecipeByIdQuery);
         if (result is null) return NotFound();
-        var resource = OrderResourceFromEntityAssembler.ToResourceFromEntity(result);
+        var resource = RecipeResourceFromEntityAssembler.ToResourceFromEntity(result);
         return Ok(resource);
     }
     
     [HttpGet]
-    [SwaggerOperation("Get All Orders", "Get all orders.", OperationId = "GetAllOrders")]
-    [SwaggerResponse(200, "Orders found.", typeof(IEnumerable<OrderResource>))]
+    [SwaggerOperation("Get All Recipes", "Get all recipes.", OperationId = "GetAllRecipes")]
+    [SwaggerResponse(200, "Orders found.", typeof(IEnumerable<RecipeResource>))]
     [SwaggerResponse(404, "Orders not found.")]
-    public async Task<IActionResult> GetAllOrders()
+    public async Task<IActionResult> GetAllRecipes()
     {
-        var getAllOrdersQuery = new GetAllOrdersQuery();
-        var orders = await orderQueryService.Handle(getAllOrdersQuery);
-        var orderResources = orders.Select(OrderResourceFromEntityAssembler.ToResourceFromEntity);
-        return Ok(orderResources);
+        var getAllRecipesQuery = new GetAllRecipesQuery();
+        var recipes = await recipeQueryService.Handle(getAllRecipesQuery);
+        var recipesResource = recipes.Select(RecipeResourceFromEntityAssembler.ToResourceFromEntity);
+        return Ok(recipesResource);
     }
 
-    [HttpDelete("{orderId:int}")]
+    /*[HttpDelete("{orderId:int}")]
     [SwaggerOperation(
         Summary = "Delete Order",
         Description = "Delete an order",
@@ -83,5 +83,5 @@ public class OrdersController(IOrderCommandService orderCommandService, IOrderQu
             return NotFound("The order was not found");
         var updatedResource = OrderResourceFromEntityAssembler.ToResourceFromEntity(result);
         return Ok(updatedResource);
-    }
+    }*/
 }

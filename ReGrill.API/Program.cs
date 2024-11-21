@@ -45,6 +45,11 @@ using ReGrill.API.Orders.Application.Internal.QueryServices;
 using ReGrill.API.Orders.Domain.Repositories;
 using ReGrill.API.Orders.Domain.Services;
 using ReGrill.API.Orders.Infrastructure.Persistence.EFC.Repositories;
+using ReGrill.API.Recipes.Application.Internal.CommandServices;
+using ReGrill.API.Recipes.Application.Internal.QueryServices;
+using ReGrill.API.Recipes.Domain.Repositories;
+using ReGrill.API.Recipes.Domain.Services;
+using ReGrill.API.Recipes.Infrastructure.Persistence.EFC.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -154,6 +159,9 @@ builder.Services.AddScoped<IOrderCommandService, OrderCommandService>();
 builder.Services.AddScoped<IOrderQueryService, OrderQueryService>();
 
 // IAM Bounded Context Injection Configuration
+builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
+builder.Services.AddScoped<IRecipeCommandService, RecipeCommandService>();
+builder.Services.AddScoped<IRecipeQueryService, RecipeQueryService>();
 
 //builder.Services.AddScoped<IIamContextFacade, IamContextFacade>();
 builder.Services.AddScoped<IHashingService, HashingServices>();
