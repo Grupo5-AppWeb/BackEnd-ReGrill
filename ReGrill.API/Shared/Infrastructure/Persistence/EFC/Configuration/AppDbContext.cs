@@ -10,6 +10,7 @@ using ReGrill.API.Invoices.Domain.Model.Aggregates;
 using ReGrill.API.Profile.Domain.Model.Aggregates;
 using ReGrill.API.Orders.Domain.Model.Aggregates;
 using ReGrill.API.Recipes.Domain.Model.Aggregates;
+using ReGrill.API.SupplierOrders.Domain.Model.Aggregates;
 
 namespace ReGrill.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 
@@ -55,6 +56,18 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
             .HasMany(r => r.Ingredients)
             .WithOne()
             .HasForeignKey(i => i.RecipeId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<SupplierOrder>().ToTable("supplier_orders").HasKey(s => s.Id);
+        builder.Entity<SupplierOrder>().Property(s => s.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<SupplierOrder>().Property(s => s.SupplierId).IsRequired();
+        builder.Entity<SupplierOrder>().Property(s => s.OrderDate).IsRequired();
+        builder.Entity<SupplierOrder>().Property(s => s.DeliveryDate).IsRequired();
+        builder.Entity<SupplierOrder>().Property(s => s.Status).IsRequired();
+        builder.Entity<SupplierOrder>()
+            .HasMany(s => s.Items)
+            .WithOne()
+            .HasForeignKey(i => i.SupplierOrderId)
             .OnDelete(DeleteBehavior.Cascade);
         
         builder.Entity<Invoice>().ToTable("invoices").HasKey(a => a.Id);
