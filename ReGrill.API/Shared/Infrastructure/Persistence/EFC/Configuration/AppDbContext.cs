@@ -36,7 +36,6 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         builder.Entity<AdminStock>().Property(a => a.Ingredient).IsRequired();
         builder.Entity<AdminStock>().Property(a => a.Quantity).IsRequired();
         builder.Entity<AdminStock>().Property(a => a.Supplier).HasColumnName("Supplier").IsRequired();
-        builder.Entity<AdminStock>().Ignore(a => a.SupplierNameValue);
 
         builder.Entity<Order>().ToTable("orders").HasKey(a => a.Id);
         builder.Entity<Order>().Property(a => a.Id).IsRequired().ValueGeneratedOnAdd();

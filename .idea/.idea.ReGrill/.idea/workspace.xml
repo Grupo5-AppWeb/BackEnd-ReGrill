@@ -10,37 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff68cd4b-8a8e-4cc7-a867-b8bfa479aea0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Application/Internal/CommandServices/RecipeCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Application/Internal/QueryServices/RecipeQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Model/Aggregates/Ingredient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Model/Aggregates/Recipe.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Model/Commands/CreateRecipesCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Model/Queries/GetAllRecipesQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Model/Queries/GetRecipeByIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Repositories/IRecipeRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Services/IRecipeCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Domain/Services/IRecipeQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Infrastructure/Persistence/EFC/Repositories/RecipeRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/RecipeController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/Resources/CreateRecipeResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/Resources/IngredientsResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/Resources/RecipeResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/Transform/CreateRecipeCommandFromResourceAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReGrill.API/Recipes/Interfaces/REST/Transform/RecipeResourceFromEntityAssembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReGrill/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReGrill/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReGrill/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Application/Internal/QueryServices/AdminStockQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Application/Internal/QueryServices/AdminStockQueryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Aggregates/AdminStock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Aggregates/AdminStock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Queries/GetAdminStockBySupplierQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Queries/GetAdminStockBySupplierQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/ValueObjects/SupplierName.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/AdminStockController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/AdminStockController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Application/Internal/CommandServices/OrderCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Application/Internal/CommandServices/OrderCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Aggregates/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Aggregates/Order.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Commands/UpdateOrderCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Domain/Model/Commands/UpdateOrderCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/OrdersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Orders/Interfaces/REST/OrdersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Profile/Interfaces/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Profile/Interfaces/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Shared/Domain/Repositories/IBaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Shared/Domain/Repositories/IBaseRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Resources/AdminStockResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Resources/AdminStockResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Transform/AdminStockResourceFromEntityAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Transform/AdminStockResourceFromEntityAssembler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReGrill.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Shared/Infrastructure/Persistence/EFC/Repositories/BaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Shared/Infrastructure/Persistence/EFC/Repositories/BaseRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature-user" />
+        <entry key="$PROJECT_DIR$" value="feature-supplierOrder" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -88,19 +66,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.ReGrill.API: http.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "develop",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.ReGrill.API: http.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.ReGrill.API: http">
     <configuration name="ReGrill.API: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/ReGrill.API/ReGrill.API.csproj" />
@@ -159,6 +137,8 @@
       <workItem from="1730861416747" duration="1625000" />
       <workItem from="1732034036449" duration="5346000" />
       <workItem from="1732157103444" duration="10770000" />
+      <workItem from="1732249941851" duration="3018000" />
+      <workItem from="1732287107686" duration="2764000" />
     </task>
     <task id="LOCAL-00001" summary="add .idea files">
       <option name="closed" value="true" />
@@ -192,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732169163473</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update invoices and recipes">
+      <option name="closed" value="true" />
+      <created>1732231570404</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732231570405</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +194,7 @@
     <MESSAGE value="correct AdminStockQuery and UserQuery services" />
     <MESSAGE value="Correct Orders Endpoint and add Get All for AdminStock" />
     <MESSAGE value="add cors" />
-    <option name="LAST_COMMIT_MESSAGE" value="add cors" />
+    <MESSAGE value="update invoices and recipes" />
+    <option name="LAST_COMMIT_MESSAGE" value="update invoices and recipes" />
   </component>
 </project>

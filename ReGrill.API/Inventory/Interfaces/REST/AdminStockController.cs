@@ -6,7 +6,6 @@ using ReGrill.API.Inventory.Interfaces.REST.Resources;
 using ReGrill.API.Inventory.Interfaces.REST.Transform;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using ReGrill.API.Inventory.Domain.Model.ValueObjects;
 
 namespace ReGrill.API.Inventory.Interfaces.REST;
 
@@ -68,8 +67,7 @@ public class AdminStockController(
     [SwaggerResponse(StatusCodes.Status404NotFound, "No AdminStock found by Supplier")]
     public async Task<ActionResult<IEnumerable<AdminStockResource>>> GetAdminStockByUserId(string supplier)
     {
-        var supplierName = new SupplierName(supplier);
-        var getAdminStockBySupplierQuery = new GetAdminStockBySupplierQuery(supplierName);
+        var getAdminStockBySupplierQuery = new GetAdminStockBySupplierQuery(supplier);
         var result = await adminStockQueryService.Handle(getAdminStockBySupplierQuery);
         if (result is null || !result.Any())
             return NotFound();

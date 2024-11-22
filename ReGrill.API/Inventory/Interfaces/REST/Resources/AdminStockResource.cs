@@ -1,5 +1,3 @@
-using ReGrill.API.Inventory.Domain.Model.ValueObjects;
-
 namespace ReGrill.API.Inventory.Interfaces.REST.Resources;
 
 public record AdminStockResource(
@@ -7,5 +5,5 @@ public record AdminStockResource(
     string Date,
     string Ingredient,
     string Quantity,
-    SupplierName Supplier
+    string Supplier
 );

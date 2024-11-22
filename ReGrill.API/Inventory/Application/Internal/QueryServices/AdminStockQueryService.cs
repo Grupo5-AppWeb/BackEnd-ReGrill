@@ -14,7 +14,7 @@ public class AdminStockQueryService(IAdminStockRepository adminStockRepository) 
     
     public Task<IEnumerable<AdminStock>> Handle(GetAdminStockBySupplierQuery query)
     {
-        return adminStockRepository.FindBySupplierAsync(query.Supplier.Supplier);
+        return adminStockRepository.FindBySupplierAsync(query.Supplier);
     }
 
     public async Task<AdminStock?> Handle(GetAdminStockByIdQuery query)
