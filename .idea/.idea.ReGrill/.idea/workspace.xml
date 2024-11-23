@@ -11,14 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ff68cd4b-8a8e-4cc7-a867-b8bfa479aea0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReGrill/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReGrill/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Application/Internal/QueryServices/AdminStockQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Application/Internal/QueryServices/AdminStockQueryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Aggregates/AdminStock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Aggregates/AdminStock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Queries/GetAdminStockBySupplierQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Queries/GetAdminStockBySupplierQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/ValueObjects/SupplierName.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/AdminStockController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/AdminStockController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Resources/AdminStockResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Resources/AdminStockResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Transform/AdminStockResourceFromEntityAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Transform/AdminStockResourceFromEntityAssembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReGrill.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReGrill.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +46,21 @@
     <setting file="file://$PROJECT_DIR$/ReGrill.API/IAM/Domain/Model/Commands/Authentication/Manager/SignUpAdministratorCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ReGrill.API/IAM/Domain/Model/Commands/Authentication/Supplier/SignUpSupplierCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ReGrill.API/IAM/Domain/Services/UserCredentials/Administration/IAdministratorCredentialQueryService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ReGrill.API/Inventory/Application/Internal/CommandServices/AdminStockCommandService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ReGrill.API/Inventory/Application/Internal/QueryServices/AdminStockQueryService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Model/Queries/GetAdminStockBySupplierQuery.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ReGrill.API/Inventory/Domain/Services/IAdminStockQueryService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ReGrill.API/Inventory/Infrastructure/Persistence/EFC/Repositories/AdminStockRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/AdminStockController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Resources/AdminStockResource.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Resources/CreateAdminStockResource.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ReGrill.API/Inventory/Interfaces/REST/Transform/AdminStockResourceFromEntityAssembler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ReGrill.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
@@ -138,7 +143,8 @@
       <workItem from="1732034036449" duration="5346000" />
       <workItem from="1732157103444" duration="10770000" />
       <workItem from="1732249941851" duration="3018000" />
-      <workItem from="1732287107686" duration="2764000" />
+      <workItem from="1732287107686" duration="3085000" />
+      <workItem from="1732329081978" duration="264000" />
     </task>
     <task id="LOCAL-00001" summary="add .idea files">
       <option name="closed" value="true" />
@@ -180,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732231570405</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update AdminStock supplier name">
+      <option name="closed" value="true" />
+      <created>1732292931413</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732292931413</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,6 +209,7 @@
     <MESSAGE value="Correct Orders Endpoint and add Get All for AdminStock" />
     <MESSAGE value="add cors" />
     <MESSAGE value="update invoices and recipes" />
-    <option name="LAST_COMMIT_MESSAGE" value="update invoices and recipes" />
+    <MESSAGE value="update AdminStock supplier name" />
+    <option name="LAST_COMMIT_MESSAGE" value="update AdminStock supplier name" />
   </component>
 </project>

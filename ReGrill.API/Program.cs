@@ -207,12 +207,12 @@ builder.Services.AddScoped<DatabaseInitializer>();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend", policy =>
+    options.AddPolicy("AllowAll", policy =>
     {
-        policy.WithOrigins("http://localhost:5173")
+        policy
+            .AllowAnyOrigin()
             .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials(); 
+            .AllowAnyMethod();
     });
 });
 
@@ -270,13 +270,19 @@ using (var scope = app.Services.CreateScope())
 }
 
 // Usar la política de CORS
-app.UseCors("AllowFrontend");
+app.UseCors("AllowAll");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+});
 
 app.UseHttpsRedirection();
 
